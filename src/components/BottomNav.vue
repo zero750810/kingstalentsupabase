@@ -18,7 +18,7 @@
             if (Array.isArray(this.rawNavItems)) {
                 return this.rawNavItems.map(item => ({
                     name: item, // 假设原始数据只包含名称
-                    route: "/" + item.replace(/\s+/g, '-').toLowerCase() // 生成对应的路由
+                    route: "/456789/" + item.replace(/\s+/g, '-').toLowerCase() // 生成对应的路由
                 }));
             } else {
                 return []; // 返回空数组作为默认值

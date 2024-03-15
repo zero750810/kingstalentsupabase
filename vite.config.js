@@ -4,7 +4,7 @@ import path from 'path'; // 引入path模块用于路径解析
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/kingstalentsupabase/',
+  base: '/456789/',
   plugins: [vue()],
   resolve: {
     alias: {

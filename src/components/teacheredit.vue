@@ -296,7 +296,7 @@ export default {
                     const { error } = await supabase.auth.signOut();
                     if (error) throw error;
                     // 重置应用状态
-                    //this.$store.commit('resetState');
+                    this.$store.commit('resetState');
                     console.log('登出成功');
                 } catch (error) {
                     console.error('登出失败', error.message);

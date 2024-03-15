@@ -29,7 +29,7 @@ export default {
     await this.$store.dispatch('fetchUser', session.data.session.user.email);
     // 获取重定向目标页面
     const homeRoute = this.$store.state.lv.index || '/';
-    this.$router.push(homeRoute);
+    //this.$router.push(homeRoute);
     
     // 这里获取要请求的数据类别，然后传给 fetchDataFromItems
     const categories = this.$store.state.lv.item || []; // 获取 items 数组，如果没有则为默认空数组

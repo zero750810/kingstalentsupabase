@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Kanban columns -->
         <div class="container-fluid">
             <div class="row">

@@ -9,10 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import { Modal } from 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 
 
 createApp(App)

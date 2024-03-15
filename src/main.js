@@ -10,7 +10,7 @@ import 'bootstrap';
 import { Modal } from 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 

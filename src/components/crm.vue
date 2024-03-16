@@ -17,7 +17,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- Kanban columns -->
         <div class="container-fluid">
             <div class="row">
@@ -351,6 +350,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -361,8 +362,7 @@ import draggable from 'vuedraggable';
 import { supabase } from '@/supabase';
 import { Modal } from 'bootstrap';
 import pdfMake from 'pdfmake/build/pdfmake';
-import vfsFonts from '@/vfs_fonts';
-// 将自定义字体设置到 pdfMake 中
+import vfsFonts from '@/vfs_fonts'; // 用来加载字体的
 pdfMake.vfs = vfsFonts.pdfMake.vfs;
 pdfMake.fonts = {
     NotoSans: {

@@ -1,10 +1,11 @@
+// vue.config.js
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path'; // 引入path模块用于路径解析
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/456789/',
+  base: '/456789/', // 设置为你的GitHub项目名称
   plugins: [vue()],
   resolve: {
     alias: {
@@ -12,3 +13,4 @@ export default defineConfig({
     },
   },
 });
+

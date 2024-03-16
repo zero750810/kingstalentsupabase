@@ -1,1 +1,0 @@
-import{_ as t}from"./index-srOOJ8HL.js";const e={data(){return{}},methods:{},mounted(){},computed:{}};function o(a,r,n,s,c,_){return" 案件 "}const p=t(e,[["render",o],["__scopeId","data-v-a290a796"]]);export{p as default};

@@ -10,6 +10,7 @@ const routes = [
     { path: '/師資資料', component: () => import('../components/TeacherData.vue') },
     { path: '/數據表格', component: () => import('../components/grid.vue') },
     { path: '/個人資料', component: () => import('../components/teacheredit.vue') },
+    { path: '/auth/callback', component: () => import('../components/AuthCallback.vue') },
     // 更多路由...
 ];
 

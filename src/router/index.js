@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
     { path: '/', component: () => import('../components/login.vue') },
@@ -10,12 +10,11 @@ const routes = [
     { path: '/師資資料', component: () => import('../components/TeacherData.vue') },
     { path: '/數據表格', component: () => import('../components/grid.vue') },
     { path: '/個人資料', component: () => import('../components/teacheredit.vue') },
-    { path: '/auth/callback', component: () => import('../components/AuthCallback.vue') },
     // 更多路由...
 ];
 
 const router = createRouter({
-    history: createWebHistory('/456789/'), // 修改这里，确保与GitHub Pages路径一致
+    history: createWebHashHistory('/kingstalent/'), // 修改这里，确保与GitHub Pages路径一致
     routes,
 });
 

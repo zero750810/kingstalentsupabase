@@ -12,12 +12,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'), // 将 '@' 设置为 'src' 目录的别名
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: () => 'everything.js' // 将所有模块打包成一个文件
-      }
-    }
-  },
+
 });
 

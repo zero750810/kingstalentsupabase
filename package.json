@@ -24,6 +24,8 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/pdfmake": "^0.2.9",
     "@vitejs/plugin-vue": "^5.0.4",
     "vite": "^5.1.4"
   }

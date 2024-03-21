@@ -13,7 +13,7 @@ const routes = [
     // 更多路由...
 ];
 const router = createRouter({
-    history: createWebHistory('/kingstalent'), // 修改这里，确保与GitHub Pages路径一致
+    history: createWebHistory('/kingstalentsupabase'), // 修改这里，确保与GitHub Pages路径一致
     routes,
 });
 export default router;

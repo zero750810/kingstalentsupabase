@@ -9,29 +9,30 @@
   import { mapState } from 'vuex';  
   export default {
     computed: {
-      // 使用 mapState 辅助函数从 store 的 state 中获取 navItems 数据
+      // 使用 mapState 輔助函數從 store 的 state 中獲取 navItems 數據
       ...mapState({
-            rawNavItems: state => state.lv.nav // 获取原始权限数据
+            rawNavItems: state => state.lv.nav // 獲取原始權限數據
         }),
       processedNavItems() {
-            // 处理原始权限数据以生成底部导航所需的格式
+            // 處理原始權限數據以生成底部導航所需的格式
             if (Array.isArray(this.rawNavItems)) {
                 return this.rawNavItems.map(item => ({
-                    name: item, // 假设原始数据只包含名称
-                    route: "/" + item.replace(/\s+/g, '-').toLowerCase() // 生成对应的路由
+                    name: item, // 假設原始數據只包含名稱
+                    route: "/" + item.replace(/\s+/g, '-').toLowerCase() // 生成對應的路由
                 }));
             } else {
-                return []; // 返回空数组作为默认值
+                return []; // 返回空數組作為默認值
             };
         }
     },
     methods: {
       navigateTo(route) {
-        // 使用 vue-router 的编程式导航
+        // 使用 vue-router 的編程式導航
         this.$router.push({ path: route });
       }
     }
   }
+
   </script>  
   <style scoped>
   .bottom-nav {

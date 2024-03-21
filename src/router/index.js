@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
-
+//router/index.js
+import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
     { path: '/', component: () => import('../components/login.vue') },
     { path: '/首頁', component: () => import('../components/index.vue') },
@@ -12,10 +12,8 @@ const routes = [
     { path: '/個人資料', component: () => import('../components/teacheredit.vue') },
     // 更多路由...
 ];
-
 const router = createRouter({
-    history: createWebHashHistory('/kingstalent/'), // 修改这里，确保与GitHub Pages路径一致
+    history: createWebHistory('/kingstalent'), // 修改这里，确保与GitHub Pages路径一致
     routes,
 });
-
 export default router;

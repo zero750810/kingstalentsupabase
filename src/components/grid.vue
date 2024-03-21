@@ -1,10 +1,10 @@
 <template>
-    <div style="height: 98vh;">
+    <div>
         <button class="btn btn-primary" @click="loadData('crm')">客戶管理</button>
         <button class="btn btn-primary" @click="loadData('event')">課程安排</button>
         <button class="btn btn-primary" @click="loadData('inventory')">庫存管理</button>
         <button class="btn btn-primary" @click="loadData('LessonPlans')">課程管理</button><br>
-        <div ref="table" style="height: 90vh;"></div>
+        <div ref="table" style="height: 92vh;"></div>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">

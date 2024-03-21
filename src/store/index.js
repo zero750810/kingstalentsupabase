@@ -10,18 +10,18 @@ export default createStore({
     lv: {},
     data: {},
     lastUpdated: {},
-    // 这里可以添加更多的状态
+    // 這裡可以添加更多的狀態
   },
   mutations: {
     resetState(state) {
-      // 重置用户信息
+      // 重置用戶信息
       state.user = {};
-      // 重置其他状态
+      // 重置其他狀態
       state.set = {};
       state.lv = {};
       state.data = {};
       state.lastUpdated = {};
-      // 根据需要继续添加其他状态重置
+      // 根據需要繼續添加其他狀態重置
     },
     setLastUpdated(state, { key, timestamp }) {
       state.lastUpdated[key] = timestamp;
@@ -36,35 +36,35 @@ export default createStore({
       state.set = setData;
     },
     getData(state, { key, data }) {
-      console.log(`getData mutation 被调用, key: ${key}, data:`, data);
-      // 如果 state.data[key] 不存在，初始化为一个空对象
+      console.log(`getData mutation 被調用, key: ${key}, data:`, data);
+      // 如果 state.data[key] 不存在，初始化為一個空對象
       if (!state.data[key]) {
         state.data[key] = {};
-        console.log(`state.data[${key}] 初始化为一个空对象`);
+        console.log(`state.data[${key}] 初始化為一個空對象`);
       }
-      // 检查 data 是否为数组
+      // 檢查 data 是否為數組
       if (!Array.isArray(data)) {
-        console.error(`期望 data 是一个数组，但接收到:`, data);
-        return;  // 如果 data 不是数组，则直接返回以避免错误
+        console.error(`期望 data 是一個數組，但接收到:`, data);
+        return;  // 如果 data 不是數組，則直接返回以避免錯誤
       }
-      // 遍历新数据，更新或添加条目，或者删除标记为 'delete' 的数据项
+      // 遍歷新數據，更新或添加條目，或者刪除標記為 'delete' 的數據項
       data.forEach(item => {
-        // 首先检查 item 是否有 id
+        // 首先檢查 item 是否有 id
         if (item && item.id !== undefined) {
-          // 检查 item 是否标记为删除
+          // 檢查 item 是否標記為刪除
           if (item.delete === true) {
-            // 如果标记为删除，则从本地缓存中移除该数据项
-            if (state.data[key][item.id]) { // 检查是否存在
-              console.log(`移除数据项, id: ${item.id}`, item);
+            // 如果標記為刪除，則從本地緩存中移除該數據項
+            if (state.data[key][item.id]) { // 檢查是否存在
+              console.log(`移除數據項, id: ${item.id}`, item);
               delete state.data[key][item.id];
             }
           } else {
-            // 否则，使用 item.id 作为键，存储或更新数据项
+            // 否則，使用 item.id 作為鍵，存儲或更新數據項
             state.data[key][item.id] = item;
-            console.log(`更新或添加数据项, id: ${item.id}`, item);
+            console.log(`更新或添加數據項, id: ${item.id}`, item);
           }
         } else {
-          console.error('数据项缺少 id 或数据项未定义:', item);
+          console.error('數據項缺少 id 或數據項未定義:', item);
         }
       });
     },
@@ -73,14 +73,14 @@ export default createStore({
       if (state.data[category]) {
           const index = state.data[category].findIndex(item => item.id === id);
           if (index !== -1) {
-              // 更新已存在的条目
+              // 更新已存在的條目
               state.data[category][index] = newData;
           } else {
-              // 如果没有找到相应的条目，直接添加
+              // 如果沒有找到相應的條目，直接添加
               state.data[category].push(newData);
           }
       } else {
-          // 如果这个类别之前不存在，直接创建新的数组
+          // 如果這個類別之前不存在，直接創建新的數組
           state.data[category] = [newData];
       }
   },
@@ -91,97 +91,92 @@ export default createStore({
   },
   actions: {
     async fetchDataFromItems({ commit, state }, categories) {
-      console.log("开始获取数据，项目列表:", categories);
+      console.log("開始獲取數據，項目列表:", categories);
       for (let item of categories) {
         let moreRecords = true;
         let page = 0;
         const pageSize = 1000; // Supabase 限制
-        console.log(`开始获取 ${item} 的数据`);
+        console.log(`開始獲取 ${item} 的數據`);
         while (moreRecords) {
           let query = supabase.from(item).select('*').range(page * pageSize, (page + 1) * pageSize - 1);
-
-          // 如果存在最后更新时间，则只查询更新的记录
+          // 如果存在最後更新時間，則只查詢更新的記錄
           if (state.lastUpdated[item]) {
-            console.log(`${item}: 获取更新时间后的数据，上次更新时间为 ${state.lastUpdated[item]}`);
+            console.log(`${item}: 獲取更新時間後的數據，上次更新時間為 ${state.lastUpdated[item]}`);
             query = query.gte('created_at', state.lastUpdated[item]);
           }
           const { data, error } = await query;
           if (error) {
-            console.error(`获取 ${item} 数据失败:`, error);
-            break; // 出错则跳出循环
+            console.error(`獲取 ${item} 數據失敗:`, error);
+            break; // 出錯則跳出循環
           } else if (data.length > 0) {
-            console.log(`${item}: 本次获取了 ${data.length} 条数据`, data);
+            console.log(`${item}: 本次獲取了 ${data.length} 條數據`, data);
             commit('getData', { key: item, data });
             if (data.length < pageSize) {
-              moreRecords = false; // 如果返回的数据少于 pageSize，说明已经是最后一页
+              moreRecords = false; // 如果返回的數據少於 pageSize，說明已經是最後一頁
             } else {
-              page++; // 准备加载下一页
+              page++; // 準備加載下一頁
             }
           } else {
-            console.log(`${item}: 没有更多数据`);
-            moreRecords = false; // 没有数据说明已经到最后
+            console.log(`${item}: 沒有更多數據`);
+            moreRecords = false; // 沒有數據說明已經到最後
           }
         }
-        // 更新最后更新时间
+        // 更新最後更新時間
         commit('updateLastUpdated', { key: item, time: new Date().toISOString() });
       }
     },
 
 
-    async fetchUser({ commit }, userEmail) { // 首先获取用户信息
+    async fetchUser({ commit }, userEmail) { // 首先獲取用戶信息
       let { data: userData, error: userError } = await supabase.from('teacher').select().eq('mail', userEmail);
       if (userError) {
-        console.error('获取 user 数据失败', userError);
-        return;  // 如果发生错误，提前退出函数
+        console.error('獲取 user 數據失敗', userError);
+        return;  // 如果發生錯誤，提前退出函數
       }
       if (userData.length === 0) {
-        console.error('未找到用户数据');
-        return;  // 如果没有找到用户数据，也提前退出
+        console.error('未找到用戶數據');
+        return;  // 如果沒有找到用戶數據，也提前退出
       }
-      // 将获取的用户数据存储到 Vuex state
+      // 將獲取的用戶數據存儲到 Vuex state
       const user = userData[0];
-      commit('setUser', user);  // 假设我们关心的是第一条数据
+      commit('setUser', user);  // 假設我們關心的是第一條數據
 
-      // 然后使用用户的 role 来获取 level 信息
-      if (user.role) {  // 检查 role 是否存在
+      // 然後使用用戶的 role 來獲取 level 信息
+      if (user.role) {  // 檢查 role 是否存在
         let { data: levelData, error: levelError } = await supabase.from('level').select().eq('name', user.role);
         if (levelError) {
-          console.error('获取 level 数据失败', levelError);
+          console.error('獲取 level 數據失敗', levelError);
           return;
         }
         if (levelData.length > 0) {
-          // 将获取的 level 数据存储到 Vuex state
-          commit('setLevel', levelData[0]);  // 假设我们关心的是第一条数据
+          // 將獲取的 level 數據存儲到 Vuex state
+          commit('setLevel', levelData[0]);  // 假設我們關心的是第一條數據
         } else {
-          console.log('没有找到对应的 level 数据');
+          console.log('沒有找到對應的 level 數據');
         }
       } else {
-        console.log('用户没有定义 role，使用默认值');
-        // 用户没有 role 或 role 为空，使用默认值 'teacher'
+        console.log('用戶沒有定義 role，使用默認值');
+        // 用戶沒有 role 或 role 為空，使用默認值 'teacher'
         let { data: levelData, error: levelError } = await supabase.from('level').select().eq('name', 'teacher');
         if (levelError) {
-          console.error('获取默认 level 数据失败', levelError);
+          console.error('獲取默認 level 數據失敗', levelError);
           return;
         }
         if (levelData.length > 0) {
-          // 将获取的默认 level 数据存储到 Vuex state
+          // 將獲取的默認 level 數據存儲到 Vuex state
           commit('setLevel', levelData[0]);
         } else {
-          console.log('没有找到对应的默认 level 数据');
+          console.log('沒有找到對應的默認 level 數據');
         }
       }
     },
 
   },
-  computed: {
-    crmDataArray() {
-      return this.$store.getters.dataAsArray('crm');
-    }
-  },
   getters: {
-    // 将对象数据转换为数组
+    // 將對象數據轉換為數組
     dataAsArray: (state) => (key) => {
       return Object.values(state.data[key] || {});
     }
   }
 });
+

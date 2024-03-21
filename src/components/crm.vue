@@ -5,7 +5,6 @@
             data-bs-target="#customer-edit" @click="openAddModal">
             <i class="bi bi-plus-lg large-icon"></i> <!-- 使用 Bootstrap Icons -->
         </button>
-
         <!-- Filter buttons and search bar -->
         <div class="container-fluid mb-3">
             <div class="row justify-content-end">
@@ -13,7 +12,7 @@
                     <button class="btn" :class="getButtonVariant(area)" @click="filterArea(area)">{{ area }}</button>
                 </div>
                 <div class="col-3">
-                    <input type="search" class="form-control" v-model="searchQuery" placeholder="搜索客户名称">
+                    <input type="search" class="form-control" v-model="searchQuery" placeholder="搜索客戶名稱">
                 </div>
             </div>
         </div>
@@ -46,45 +45,44 @@
                 </div>
             </div>
         </div>
-        <!-- 客户详情Modal -->
+        <!-- 客戶詳情Modal -->
         <div class="modal fade" id="customer-details" tabindex="-1" aria-labelledby="customerDetailsLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="customerDetailsLabel">客户详情</h5>
+                        <h5 class="modal-title" id="customerDetailsLabel">客戶詳情</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p><strong>客户名称：</strong>{{ selectedCustomer.name }}</p>
-                        <p><strong>客户地址：</strong>{{ selectedCustomer.add }}</p>
-                        <p><strong>负责地区：</strong>{{ selectedCustomer.area }}</p>
-                        <p><strong>当前进度：</strong>{{ selectedCustomer.schedule }}</p>
-                        <p><strong>客户等级：</strong>{{ selectedCustomer.lv }}</p>
-                        <p><strong>客户窗口：</strong>{{ selectedCustomer.client_name }}</p>
-                        <p><strong>客户电话：</strong>{{ selectedCustomer.client_phone }}</p>
-                        <p><strong>客户邮箱：</strong>{{ selectedCustomer.client_mail }}</p>
-                        <p><strong>负责业务：</strong>{{ this.teacherDisplayName() }}</p>
+                        <p><strong>客戶名稱：</strong>{{ selectedCustomer.name }}</p>
+                        <p><strong>客戶地址：</strong>{{ selectedCustomer.add }}</p>
+                        <p><strong>負責地區：</strong>{{ selectedCustomer.area }}</p>
+                        <p><strong>當前進度：</strong>{{ selectedCustomer.schedule }}</p>
+                        <p><strong>客戶等級：</strong>{{ selectedCustomer.lv }}</p>
+                        <p><strong>客戶窗口：</strong>{{ selectedCustomer.client_name }}</p>
+                        <p><strong>客戶電話：</strong>{{ selectedCustomer.client_phone }}</p>
+                        <p><strong>客戶郵箱：</strong>{{ selectedCustomer.client_mail }}</p>
+                        <p><strong>負責業務：</strong>{{ this.teacherDisplayName() }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#customer-edit" @click="crmedit">编辑</button>
+                            data-bs-target="#customer-edit" @click="crmedit">編輯</button>
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                            data-bs-target="#event-edit" @click="eventedit">课程规划</button>
+                            data-bs-target="#event-edit" @click="eventedit">課程規劃</button>
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#quotation-edit" @click="eventedit">报价单制作</button>
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">联系记录</button>
+                            data-bs-target="#quotation-edit" @click="eventedit">報價單製作</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">聯繫記錄</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--客户编辑Modal -->
+        <!--客戶編輯Modal -->
         <div class="modal fade" id="customer-edit" tabindex="-1" aria-labelledby="customerEditLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="customerEditLabel">客户编辑</h5>
+                        <h5 class="modal-title" id="customerEditLabel">客戶編輯</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -117,13 +115,12 @@
                 </div>
             </div>
         </div>
-
-        <!--课程编辑Modal -->
+        <!--課程編輯Modal -->
         <div class="modal fade" id="event-edit" tabindex="-1" aria-labelledby="eventEditLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="eventEditLabel">课程编辑</h5>
+                        <h5 class="modal-title" id="eventEditLabel">課程編輯</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -185,17 +182,17 @@
                                                             </div>
                                                             <div :id="'event-details-' + event.id" class="collapse">
                                                                 <div class="card-body">
-                                                                    <p>课程时间: {{ event.start_time }} - {{ event.end_time
+                                                                    <p>課程時間: {{ event.start_time }} - {{ event.end_time
                                                                         }}
                                                                     </p>
-                                                                    <p>授课老师: {{ event.teacherid1 }}</p>
-                                                                    <p>钟点费用: {{ event.hourly_rate }}</p>
-                                                                    <p>材料费用: {{ event.material_fee }}</p>
-                                                                    <p>课程备注: {{ event.remark }}</p>
+                                                                    <p>授課老師: {{ event.teacherid1 }}</p>
+                                                                    <p>鐘點費用: {{ event.hourly_rate }}</p>
+                                                                    <p>材料費用: {{ event.material_fee }}</p>
+                                                                    <p>課程備注: {{ event.remark }}</p>
                                                                     <button class="btn btn-primary"
-                                                                        @click="editEvent(event)">编辑</button>
+                                                                        @click="editEvent(event)">編輯</button>
                                                                     <button class="btn btn-danger"
-                                                                        @click="deleteEvent(event)">删除</button>
+                                                                        @click="deleteEvent(event)">刪除</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -215,14 +212,13 @@
                 </div>
             </div>
         </div>
-
-        <!--课程報價Modal -->
+        <!--課程報價Modal -->
         <div class="modal fade" id="quotation-edit" tabindex="-1" aria-labelledby="quotationEditLabel"
             aria-hidden="true" ref="quotationModal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="quotationEditLabel">课程報價</h5>
+                        <h5 class="modal-title" id="quotationEditLabel">課程報價</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -246,11 +242,11 @@
                                         </div>
                                     </div>
                                 </form>
-                                <!-- 将计算结果部分移动到这里 -->
+                                <!-- 將計算結果部分移動到這裡 -->
                                 <div class="col-12 mt-3">
-                                    <p>预估钟点：NTD {{ tempCustomer.hourly_rate * tempCustomer.estimated_halls *
+                                    <p>預估鐘點：NTD {{ tempCustomer.hourly_rate * tempCustomer.estimated_halls *
                 tempCustomer.hour * tempCustomer.estimated_classes }}</p>
-                                    <p>预估材料：NTD {{
+                                    <p>預估材料：NTD {{
                 (tempCustomer.course_type === '單堂計費') ?
                     (tempCustomer.material_fee * tempCustomer.estimated_number
                         * tempCustomer.estimated_classes * tempCustomer.estimated_halls) :
@@ -258,7 +254,7 @@
                         (tempCustomer.material_fee * tempCustomer.estimated_number
                             * tempCustomer.estimated_classes) : 0
             }}</p>
-                                    <p>预计金额：NTD {{
+                                    <p>預計金額：NTD {{
                     (tempCustomer.hourly_rate * tempCustomer.estimated_halls * tempCustomer.hour *
                         tempCustomer.estimated_classes) +
                     ((tempCustomer.course_type === '單堂計費') ?
@@ -271,9 +267,9 @@
                                 </div>
                             </div>
 
-                            <!-- 右边的部分 -->
+                            <!-- 右邊的部分 -->
                             <div class="col-md-6" style="overflow-y: auto; max-height: 75vh;">
-                                <!-- 遍历不同的类别 -->
+                                <!-- 遍歷不同的類別 -->
                                 <div v-for="(groupedByquotation, category) in groupedByquotation" :key="category">
                                     <div class="d-flex justify-content-between mt-2">
                                         <button class="btn btn-info col-8" type="button" data-bs-toggle="collapse"
@@ -287,7 +283,7 @@
                                     </div>
                                     <div :id="'collapse-' + category" class="collapse mt-2">
 
-                                        <!-- 遍历该类别下的才艺项目 -->
+                                        <!-- 遍歷該類別下的才藝項目 -->
                                         <div v-for="(events, talent) in groupedByquotation" :key="talent"
                                             class="card mt-2">
                                             <div class="card-header" data-bs-toggle="collapse"
@@ -295,21 +291,21 @@
                                                 {{ talent }}
                                             </div>
                                             <div :id="'collapse-' + category + '-' + talent" class="collapse">
-                                                <!-- 显示每个事件的详细信息 -->
+                                                <!-- 顯示每個事件的詳細信息 -->
                                                 <div v-for="event in events" :key="event.id">
                                                     <div class="card-body">
-                                                        <p>收费类型: {{ event.course_type }}</p>
-                                                        <p>钟点费用: {{ event.hourly_rate }}</p>
-                                                        <p>材料费用: {{ event.material_fee }}</p>
-                                                        <p>预估人数: {{ event.estimated_number }}</p>
-                                                        <p>预估堂数: {{ event.estimated_halls }}</p>
-                                                        <p>单堂时数: {{ event.hour }}</p>
-                                                        <p>预估班数: {{ event.estimated_classes }}</p>
-                                                        <p>课程备注: {{ event.remark }}</p>
-                                                        <p>预估钟点：NTD
+                                                        <p>收費類型: {{ event.course_type }}</p>
+                                                        <p>鐘點費用: {{ event.hourly_rate }}</p>
+                                                        <p>材料費用: {{ event.material_fee }}</p>
+                                                        <p>預估人數: {{ event.estimated_number }}</p>
+                                                        <p>預估堂數: {{ event.estimated_halls }}</p>
+                                                        <p>單堂時數: {{ event.hour }}</p>
+                                                        <p>預估班數: {{ event.estimated_classes }}</p>
+                                                        <p>課程備注: {{ event.remark }}</p>
+                                                        <p>預估鐘點：NTD
                                                             {{ event.hourly_rate * event.estimated_halls * event.hour *
                 event.estimated_classes }}</p>
-                                                        <p>预估材料：NTD
+                                                        <p>預估材料：NTD
                                                             {{ (event.course_type === '單堂計費') ?
                 (event.material_fee * event.estimated_number *
                     event.estimated_classes * event.estimated_halls) :
@@ -317,7 +313,7 @@
                     (event.material_fee * event.estimated_number *
                         event.estimated_classes) : 0
                                                             }}</p>
-                                                        <p>预计金额：NTD {{
+                                                        <p>預計金額：NTD {{
                 (event.hourly_rate * event.estimated_halls * event.hour *
                     event.estimated_classes) +
                 ((event.course_type === '單堂計費') ?
@@ -328,9 +324,9 @@
                                                             event.estimated_classes) : 0)
                                                             }}</p>
                                                         <button class="btn btn-primary"
-                                                            @click="editEvent(event)">编辑</button>
+                                                            @click="editEvent(event)">編輯</button>
                                                         <button class="btn btn-danger"
-                                                            @click="deleteEvent(event)">删除</button>
+                                                            @click="deleteEvent(event)">刪除</button>
                                                     </div>
 
                                                 </div>
@@ -350,8 +346,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </template>
 
@@ -375,7 +369,7 @@ pdfMake.fonts = {
 
 export default {
     components: {
-        draggable, // 将 draggable 组件注册到当前 Vue 组件
+        draggable, // 將 draggable 組件註冊到當前 Vue 組件
     },
 
     data() {
@@ -404,22 +398,22 @@ export default {
         },
 
         filteredcrm(statusKey) {
-            // 转换对象为数组并进行过滤
+            // 轉換對象為數組並進行過濾
             return this.crm.filter(customer => customer.schedule === statusKey);
         },
 
         getBorderColor(area) {
             switch (area) {
                 case '北區':
-                    return 'border-primary'; // 蓝色边框
+                    return 'border-primary'; // 藍色邊框
                 case '桃竹':
-                    return 'border-danger'; // 红色边框
+                    return 'border-danger'; // 紅色邊框
                 case '中區':
-                    return 'border-success'; // 绿色边框
+                    return 'border-success'; // 綠色邊框
                 case '南區':
-                    return 'border-secondary'; // 紫色边框
+                    return 'border-secondary'; // 紫色邊框
                 default:
-                    return 'border-light'; // 默认边框
+                    return 'border-light'; // 默認邊框
             }
         },
 
@@ -434,7 +428,7 @@ export default {
                 case '南區':
                     return 'secondary';
                 default:
-                    return 'outline-info'; // 其他情况
+                    return 'outline-info'; // 其他情況
             }
         },
 
@@ -461,14 +455,14 @@ export default {
         },
 
         openaddModal() {
-            this.tempCustomer = {}; // 重置临时客户对象
+            this.tempCustomer = {}; // 重置臨時客戶對象
         },
         //crm儲存
         async saveCustomerDetails() {
             const { data, error } = await supabase
-                .from('crm') // 确保这是你的表名
-                .upsert({ // upsert 方法用于更新或插入数据
-                    id: this.tempCustomer.id || undefined, // Supabase 通过 null 来处理新建情况
+                .from('crm') // 確保這是你的表名
+                .upsert({ // upsert 方法用於更新或插入數據
+                    id: this.tempCustomer.id || undefined, // Supabase 通過 null 來處理新建情況
                     add: this.tempCustomer.add || '',
                     area: this.tempCustomer.area || '',
                     name: this.tempCustomer.name || '',
@@ -494,36 +488,36 @@ export default {
         //crm拖曳事件儲存
         async updatecrmStatus(event) {
             let crmArray = Object.values(this.$store.state.data.crm)
-            // 从事件的 DOM 元素中获取客户 ID
+            // 從事件的 DOM 元素中獲取客戶 ID
             const movedCustomerId = event.item.__draggable_context.element.id;
-            // 在数组中查找对应的客户对象
+            // 在數組中查找對應的客戶對象
             const movedCustomer = crmArray.find(customer => customer.id === movedCustomerId);
             if (!movedCustomer) {
-                console.error("未找到被移动的客户");
+                console.error("未找到被移動的客戶");
                 return;
             }
             let newStatusKey = null;
             let targetElement = event.to;
-            // 遍历父元素直到找到含有 'data-status-key' 属性的元素
+            // 遍歷父元素直到找到含有 'data-status-key' 屬性的元素
             while (targetElement && !newStatusKey) {
                 newStatusKey = targetElement.getAttribute('data-status-key');
-                targetElement = targetElement.parentElement; // 移动到上一级父元素
+                targetElement = targetElement.parentElement; // 移動到上一級父元素
             }
             if (!newStatusKey) {
-                console.error("没有在目标元素上找到状态键");
+                console.error("沒有在目標元素上找到狀態鍵");
                 return;
             }
             movedCustomer.schedule = newStatusKey;
-            // 更新客户信息到 Supabase
+            // 更新客戶信息到 Supabase
             const { data, error } = await supabase
-                .from('crm') // 使用你的实际表名
+                .from('crm') // 使用你的實際表名
                 .update({ schedule: movedCustomer.schedule, created_at: new Date().toISOString() })
                 .match({ id: movedCustomer.id });
 
             if (error) {
-                console.error("更新客户状态失败: ", error);
+                console.error("更新客戶狀態失敗: ", error);
             } else {
-                console.log("客户状态更新成功");
+                console.log("客戶狀態更新成功");
             }
         },
 
@@ -544,9 +538,9 @@ export default {
         //課程儲存
         async saveeventDetails() {
             const { data, error } = await supabase
-                .from('event') // 确保这是你的表名
-                .upsert({ // upsert 方法用于更新或插入数据
-                    id: this.tempCustomer.id || undefined, // Supabase 通过 null 来处理新建情况
+                .from('event') // 確保這是你的表名
+                .upsert({ // upsert 方法用於更新或插入數據
+                    id: this.tempCustomer.id || undefined, // Supabase 通過 null 來處理新建情況
                     type: this.tempCustomer.type || null,
                     remark: this.tempCustomer.remark || null,
                     course_titleid: this.tempCustomer.course_titleid || null,
@@ -570,7 +564,7 @@ export default {
                 console.error('Error saving event details: ', error);
             } else {
                 await this.$store.dispatch('fetchDataFromItems', ['event']);
-                this.tempCustomer = {}; // 清空临时数据
+                this.tempCustomer = {}; // 清空臨時數據
                 this.eventedit()
             }
         },
@@ -578,9 +572,9 @@ export default {
         //報價儲存
         async savequotation() {
             const { data, error } = await supabase
-                .from('quotation') // 确保这是你的表名
-                .upsert({ // upsert 方法用于更新或插入数据
-                    id: this.tempCustomer.id || undefined, // Supabase 通过 null 来处理新建情况
+                .from('quotation') // 確保這是你的表名
+                .upsert({ // upsert 方法用於更新或插入數據
+                    id: this.tempCustomer.id || undefined, // Supabase 通過 null 來處理新建情況
                     course_time: this.tempCustomer.course_time || null,
                     crmid: this.tempCustomer.crmid || null,
                     area: this.tempCustomer.area || null,
@@ -601,7 +595,7 @@ export default {
                 console.error('Error saving event details: ', error);
             } else {
                 await this.$store.dispatch('fetchDataFromItems', ['quotation']);
-                this.tempCustomer = {}; // 清空临时数据
+                this.tempCustomer = {}; // 清空臨時數據
                 this.eventedit()
             }
         },
@@ -612,13 +606,13 @@ export default {
         //課程刪除
         async deleteEvent(event) {
             console.log(event)
-            if (confirm('确定要删除这条记录吗？')) {
+            if (confirm('確定要刪除這條記錄嗎？')) {
                 try {
                     const { data, error } = await supabase
-                        .from('event') // 确保这是你的表名
+                        .from('event') // 確保這是你的表名
                         .upsert({ id: event.id, delete: true, created_at: new Date().toISOString() });
                     if (error) throw error;
-                    // 数据更新后重新获取事件列表
+                    // 數據更新後重新獲取事件列表
                     await this.$store.dispatch('fetchDataFromItems', ['event']);
                 } catch (error) {
                     console.error("Error removing document: ", error);
@@ -628,13 +622,13 @@ export default {
         //報價刪除
         async deletequotation(event) {
             console.log(event)
-            if (confirm('确定要删除这条记录吗？')) {
+            if (confirm('確定要刪除這條記錄嗎？')) {
                 try {
                     const { data, error } = await supabase
-                        .from('quotation') // 确保这是你的表名
+                        .from('quotation') // 確保這是你的表名
                         .upsert({ id: event.id, delete: true, created_at: new Date().toISOString() });
                     if (error) throw error;
-                    // 数据更新后重新获取事件列表
+                    // 數據更新後重新獲取事件列表
                     await this.$store.dispatch('fetchDataFromItems', ['quotation']);
                 } catch (error) {
                     console.error("Error removing document: ", error);
@@ -645,19 +639,19 @@ export default {
         getOptions(fieldName) {
             const rawOptions = this.$store.state.data.set[0][fieldName];
             const mappedOptions = (rawOptions || []).map(option => {
-                return { value: option, text: option }; // 假设option本身就是你想要的值和文本
+                return { value: option, text: option }; // 假設option本身就是你想要的值和文本
             });
             return mappedOptions;
         },
 
         //老師轉換名稱
         teacherDisplayName() {
-            // 从 Vuex 获取所有教师的数据
+            // 從 Vuex 獲取所有教師的數據
             const teachers = this.$store.state.data.teacher;
             const crmArray = Object.values(teachers);
-            // 查找与 selectedCustomer.sales 匹配的教师
+            // 查找與 selectedCustomer.sales 匹配的教師
             const teacher = crmArray.find(teacher => teacher.id === this.selectedCustomer.sales);
-            // 如果找到了对应的教师，则返回其綽號和本名；否则，返回原 ID 附加一个星号
+            // 如果找到了對應的教師，則返回其綽號和本名；否則，返回原 ID 附加一個星號
             return teacher ? `${teacher.name} / ${teacher.Alias}` : `${this.selectedCustomer.sales}*`;
         },
 
@@ -667,11 +661,11 @@ export default {
             if (!Talent) {
                 return [];
             }
-            // 过滤出符合选中才艺项目的课程计划
+            // 過濾出符合選中才藝項目的課程計劃
             let filteredLessonPlans = Object.values(this.$store.state.data.lesson_plans).filter(plan => plan.course === Talent);
-            // 对过滤出来的课程计划根据名称进行排序
+            // 對過濾出來的課程計劃根據名稱進行排序
             filteredLessonPlans = filteredLessonPlans.sort((a, b) => a.name.localeCompare(b.name));
-            // 将过滤并排序后的课程计划映射为下拉菜单选项
+            // 將過濾並排序後的課程計劃映射為下拉菜單選項
             return filteredLessonPlans.map(plan => {
                 return { value: plan.id, text: plan.name };
             });
@@ -680,17 +674,17 @@ export default {
         generatePdf(groupedEvents) {
             // 定義一個空數組用於存儲 PDF 文檔的各個部分
             let today = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
-            // 假设 `groupedEvents` 和 `this.crm` 已经准备好
-            let firstCategory = Object.keys(groupedEvents)[0];  // 获取第一个分类名
-            let firstEvent = groupedEvents[firstCategory][0];  // 获取该分类下的第一个事件
-            let relatedCrm = this.crm.find(crmItem => crmItem.id === firstEvent.crmid);  // 根据 crmid 查找相关的 CRM 信息
+            // 假設 `groupedEvents` 和 `this.crm` 已經準備好
+            let firstCategory = Object.keys(groupedEvents)[0];  // 獲取第一個分類名
+            let firstEvent = groupedEvents[firstCategory][0];  // 獲取該分類下的第一個事件
+            let relatedCrm = this.crm.find(crmItem => crmItem.id === firstEvent.crmid);  // 根據 crmid 查找相關的 CRM 信息
             let sales = Object.values(this.$store.state.data.teacher);
             let salesdata = sales.find(crmItem => crmItem.id === relatedCrm.sales);
             console.log("salesdata", salesdata)
 
             let documentDefinition = {
                 content: [
-                    // 抬头
+                    // 抬頭
                     { text: '國 王 才 藝 課 程 請 款 單', style: 'header', alignment: 'center' },
                     // 表格1
                     {
@@ -720,7 +714,7 @@ export default {
                         },
                         layout: 'lightHorizontalLines'
                     },
-                    // 注释部分
+                    // 注釋部分
                     {
                         style: 'notes',
                         ul: [
@@ -745,7 +739,7 @@ export default {
                     },
                 },
                 defaultStyle: {
-                    font: 'NotoSans' // 使用 NotoSans 作为默认字体
+                    font: 'NotoSans' // 使用 NotoSans 作為默認字體
                 }
             };
             // 遍歷 groupedEvents 對象
@@ -792,10 +786,10 @@ export default {
             let today = new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
             let today1 = new Date();
             let newDate = new Date(today1.setDate(today1.getDate() + 7)).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
-            // 假设 `groupedEvents` 和 `this.crm` 已经准备好
-            let firstCategory = Object.keys(groupedEvents)[0];  // 获取第一个分类名
-            let firstEvent = groupedEvents[firstCategory][0];  // 获取该分类下的第一个事件
-            let relatedCrm = this.crm.find(crmItem => crmItem.id === firstEvent.crmid);  // 根据 crmid 查找相关的 CRM 信息
+            // 假設 `groupedEvents` 和 `this.crm` 已經準備好
+            let firstCategory = Object.keys(groupedEvents)[0];  // 獲取第一個分類名
+            let firstEvent = groupedEvents[firstCategory][0];  // 獲取該分類下的第一個事件
+            let relatedCrm = this.crm.find(crmItem => crmItem.id === firstEvent.crmid);  // 根據 crmid 查找相關的 CRM 信息
             let sales = Object.values(this.$store.state.data.teacher);
             let salesdata = sales.find(crmItem => crmItem.id === relatedCrm.sales);
             console.log("groupedEvents", groupedEvents)
@@ -803,7 +797,7 @@ export default {
 
             let documentDefinition = {
                 content: [
-                    // 抬头
+                    // 抬頭
                     { text: '國 王 才 藝 課 程 報 價 單', style: 'header', alignment: 'center' },
                     // 表格1
                     {
@@ -839,7 +833,7 @@ export default {
                             ]
                         },
                     },
-                    // 注释部分
+                    // 注釋部分
                     {
                         style: 'notes',
                         ul: [
@@ -855,7 +849,7 @@ export default {
                             {
                                 text: [
                                     '本報價內容如有變動，依雙方協定為基準，此報價單有效期限至',
-                                    { text: `${newDate}`, color: 'red' },  // 假设 addDays 是一个添加天数的函数
+                                    { text: `${newDate}`, color: 'red' },  // 假設 addDays 是一個添加天數的函數
                                 ]
                             },
                             {
@@ -916,7 +910,7 @@ export default {
                     },
                 },
                 defaultStyle: {
-                    font: 'NotoSans' // 使用 NotoSans 作为默认字体
+                    font: 'NotoSans' // 使用 NotoSans 作為默認字體
                 }
             };
             // 使用 pdfMake 創建 PDF
@@ -925,34 +919,34 @@ export default {
         //報價單pdf計算
         prepareTableBody(groupedEvents) {
             let body = [
-                // 表头
+                // 表頭
                 [{ text: '項 目', style: 'tableCell' }, { text: '內 容', style: 'tableCell', colSpan: 2 }, {}, { text: '金 額', style: 'tableCell' }]
             ];
-            let totalAmount = 0;  // 用于累计总费用
-            // 动态添加行
+            let totalAmount = 0;  // 用於累計總費用
+            // 動態添加行
             for (const [category, events] of Object.entries(groupedEvents)) {
-                // 分别处理每个分类下的所有事件
-                let totalHourlyRate = 0;  // 用于累计鐘點费的总计
-                let totalMaterialFee = 0; // 用于累计材料费的总计
+                // 分別處理每個分類下的所有事件
+                let totalHourlyRate = 0;  // 用於累計鐘點費的總計
+                let totalMaterialFee = 0; // 用於累計材料費的總計
 
                 events.forEach(event => {
-                    // 这里假设每个分类下的事件的费用和时间等信息相同，只取第一个事件作为示例
+                    // 這裡假設每個分類下的事件的費用和時間等信息相同，只取第一個事件作為示例
                     const { hourly_rate, estimated_halls, hour, estimated_classes, material_fee, estimated_number, course_type, remark } = event;
                     totalHourlyRate += hourly_rate * estimated_halls * hour * estimated_classes;
-                    totalMaterialFee += material_fee;  // 假设材料费是固定的，不随堂数或班数变化
-                    // 分类名 + 钟点费
+                    totalMaterialFee += material_fee;  // 假設材料費是固定的，不隨堂數或班數變化
+                    // 分類名 + 鐘點費
                     body.push([
                         { text: `${category}鐘點費`, style: 'tableCell' },
                         { text: `$${hourly_rate} /hr * ${estimated_halls}堂 * ${hour} hr * ${estimated_classes}班`, style: 'centertableCell', colSpan: 2 },
                         {},
                         { text: `$${hourly_rate * estimated_halls * hour * estimated_classes}`, style: 'endtableCell' }
                     ]);
-                    // 根据收费类型计算材料费用行
+                    // 根據收費類型計算材料費用行
                     let materialContent, materialTotal;
                     if (course_type === "包套計費") {
                         materialContent = `$${material_fee} /套 * ${estimated_number}人/班 * ${estimated_classes}班 (包套收費)`;
                         materialTotal = material_fee * estimated_number * estimated_classes;
-                    } else {  // 假设只有 "包套计费" 和 "单堂计费" 两种情况
+                    } else {  // 假設只有 "包套計費" 和 "單堂計費" 兩種情況
                         console.log()
                         materialContent = `$${material_fee} /個 * ${estimated_number}人/班 * ${estimated_halls}堂 * ${estimated_classes}班 (單堂收費)`;
                         materialTotal = material_fee * estimated_number * estimated_halls * estimated_classes;
@@ -973,16 +967,16 @@ export default {
                         ]);
                     };
 
-                    totalAmount += (hourly_rate * estimated_halls * hour * estimated_classes) + materialTotal;  // 将当前事件的费用累加到总金额
+                    totalAmount += (hourly_rate * estimated_halls * hour * estimated_classes) + materialTotal;  // 將當前事件的費用累加到總金額
                 });
 
             }
-            // 所有分类处理完毕后，添加总金额的行
+            // 所有分類處理完畢後，添加總金額的行
             body.push([
                 { text: '', colSpan: 2 },
                 {},
                 { text: '總金額', style: 'tableCell' },
-                { text: `$${totalAmount}`, style: 'endtableCell' } // 在这里显示总金额
+                { text: `$${totalAmount}`, style: 'endtableCell' } // 在這裡顯示總金額
             ]);
 
             return body;
@@ -1045,9 +1039,9 @@ export default {
         lvOptions() { return this.getOptions('lv'); },
         progressOptions() { return this.getOptions('schedule'); },
         talentOptions() {
-            // 先从getOptions获取所有选项
+            // 先從getOptions獲取所有選項
             const allOptions = this.getOptions('course');
-            // 然后过滤掉文本为'业务'的选项
+            // 然後過濾掉文本為'業務'的選項
             return allOptions.filter(option => option.text !== '業務');
         },
         categoryOptions() { return this.getOptions('course_time').slice().reverse(); },
@@ -1061,7 +1055,7 @@ export default {
             const filteredTeachers = teacherArray.filter(teacher =>
                 teacher.area.includes(selectedArea) && teacher.course.includes(this.tempCustomer.course)
             );
-            // 将过滤出的教师映射为下拉菜单选项
+            // 將過濾出的教師映射為下拉菜單選項
             return filteredTeachers.map(teacher => {
                 return { value: teacher.id, text: teacher.name + " / " + teacher.Alias };
             });
@@ -1073,7 +1067,7 @@ export default {
                 return acc;
             }, {});
             const teachers = Object.values(this.$store.state.data.teacher).reduce((acc, teacher) => {
-                acc[teacher.id] = teacher.name + " / " + teacher.Alias; // 注意 'Alias' 应该是小写，除非在数据确实是大写
+                acc[teacher.id] = teacher.name + " / " + teacher.Alias; // 注意 'Alias' 應該是小寫，除非在數據確實是大寫
                 return acc;
             }, {});
             const lessonPlans = Object.values(this.$store.state.data.lesson_plans).reduce((acc, plan) => {
@@ -1082,17 +1076,17 @@ export default {
             }, {});
             const filteredEvents = Object.values(this.$store.state.data.event).filter(event => event.crmid === this.selectedCustomerName);
 
-            // 初始化用于存储排序后类别数据的对象
+            // 初始化用於存儲排序後類別數據的對象
             let sortedEvents = {};
 
-            // 获取类别排序数组
+            // 獲取類別排序數組
             const categoryOrder = this.$store.state.data.set[0]['course_time'].slice().reverse();
 
-            // 按类别和才艺项目组织事件数据
+            // 按類別和才藝項目組織事件數據
             let categorizedEvents = filteredEvents.reduce((acc, event) => {
                 const category = event['course_time'];
                 const talent = event['course'];
-                // 匹配教师名称和课程计划名称
+                // 匹配教師名稱和課程計劃名稱
                 const crmname = crm[event.crmid] ? crm[event.crmid] : `${event.crmid}*`;
                 const teacherName = teachers[event.teacherid] ? teachers[event.teacherid] : `${event.teacherid}*`;
                 const lessonPlanName = lessonPlans[event.course_titleid] ? lessonPlans[event.course_titleid] : `${event.course_titleid}*`;
@@ -1103,7 +1097,7 @@ export default {
                 if (!acc[category][talent]) {
                     acc[category][talent] = [];
                 }
-                // 创建一个新的对象来存储额外的字段
+                // 創建一個新的對象來存儲額外的字段
                 const newEvent = {
                     ...event,
                     crmid1: crmname,
@@ -1114,12 +1108,12 @@ export default {
                 return acc;
             }, {});
 
-            // 按照指定的顺序重构分类数据
+            // 按照指定的順序重構分類數據
             categoryOrder.forEach(category => {
                 if (categorizedEvents[category]) {
                     sortedEvents[category] = categorizedEvents[category];
 
-                    // 对每个类别下的才艺项目进行排序和事件排序
+                    // 對每個類別下的才藝項目進行排序和事件排序
                     Object.keys(sortedEvents[category]).forEach(talent => {
                         sortedEvents[category][talent] = sortedEvents[category][talent].sort((a, b) => new Date(a.課程日期) - new Date(b.課程日期));
                     });
@@ -1135,18 +1129,18 @@ export default {
                 return acc;
             }, {});
             const filteredEvents = Object.values(this.$store.state.data.quotation).filter(event => event.crmid === this.selectedCustomerName);
-            // 初始化用于存储排序后类别数据的对象
+            // 初始化用於存儲排序後類別數據的對象
             let sortedEvents = {};
 
-            // 获取类别排序数组
+            // 獲取類別排序數組
             const categoryOrder = (this.$store.state.data.set[0] && this.$store.state.data.set[0]['course_time']) ? this.$store.state.data.set[0]['course_time'].slice().reverse() : [];
 
-            // 按类别和才艺项目组织事件数据
+            // 按類別和才藝項目組織事件數據
             let categorizedEvents = filteredEvents.reduce((acc, event) => {
                 const category = event['course_time'];
                 const talent = event['course'];
 
-                // 匹配教师名称和课程计划名称
+                // 匹配教師名稱和課程計劃名稱
                 const crmname = crm[event.crmid] ? crm[event.crmid] : `${event.crmid}*`;
 
                 if (!acc[category]) {
@@ -1156,7 +1150,7 @@ export default {
                     acc[category][talent] = [];
                 }
 
-                // 创建一个新的对象来存储额外的字段
+                // 創建一個新的對象來存儲額外的字段
                 const newEvent = {
                     ...event,
                     crmid1: crmname,
@@ -1166,7 +1160,7 @@ export default {
                 return acc;
             }, {});
 
-            // 按照指定的顺序重构分类数据
+            // 按照指定的順序重構分類數據
             categoryOrder.forEach(category => {
                 if (categorizedEvents[category]) {
                     sortedEvents[category] = categorizedEvents[category];
@@ -1176,15 +1170,15 @@ export default {
         },
 
         crm() {
-            // 原始状态
+            // 原始狀態
             let crmArray = Object.values(this.$store.state.data.crm).map(item => {
                 return { ...item, course: '業務' };
             });
-            // 根据地区过滤
+            // 根據地區過濾
             if (this.filter !== 'all') {
                 crmArray = crmArray.filter(status => status.area === this.filter);
             }
-            // 根据搜索查询过滤
+            // 根據搜索查詢過濾
             if (this.searchQuery) {
                 crmArray = crmArray.filter(status => status.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
             }
@@ -1192,6 +1186,7 @@ export default {
         },
     },
 };
+
 </script>
 <style scoped>
 .float-button {
@@ -1200,12 +1195,12 @@ export default {
     bottom: 70px;
     z-index: 999;
     width: 60px;
-    /* 设置按钮的宽度和高度确保它是圆的 */
+    /* 設置按鈕的寬度和高度確保它是圓的 */
     height: 60px;
     border-radius: 50%;
-    /* 使按钮边缘圆滑 */
+    /* 使按鈕邊緣圓滑 */
     display: flex;
-    /* 使用 Flexbox 来居中图标 */
+    /* 使用 Flexbox 來居中圖標 */
     align-items: center;
     justify-content: center;
 }
@@ -1216,3 +1211,4 @@ export default {
 
 }
 </style>
+
